@@ -49,3 +49,10 @@ try to access a database.
 
 Done.
 Postgres installed on ArchLinux.
+
+This was a very easy and routine task for any project, I think it should be
+marked as beginner. There was nothing especially challenging about it;
+all you do is follow the instructions, some of which are muscle memory.
+Though, users of non-Debian-based distros may be confused when the adduser
+perl script is not found. Always remember adduser only utilizes useradd's
+commands.
