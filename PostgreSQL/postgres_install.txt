@@ -1,0 +1,51 @@
+Summary of the commands used to install PostgreSQL from the offical git repository.
+This postgres installation was done on ArchLinux.
+
+First, clone from the offical repo:
+cd ~/Downloads/
+git clone https://git.postgresql.org/git/postgresql.git
+
+This took a while because of the amount of files are downloaded.
+
+Next, configure and compile.
+cd postgresql
+mkdir build && cd build
+../configure
+
+Here I create a build directory where my computer-specific compilation and installation
+settings will be created and run the configure script from the build directory.
+This is the same procedure that cmake requires by default.
+
+make
+make check
+
+I compile the source tree and run the makefile test suite to ensure everything is working.
+For me, the compilation and check passed successfully on the first try.
+
+su
+
+I login to root to install postgres.
+
+make install
+
+I install postgres.
+
+useradd -m postgres
+mkdir /usr/local/pgsql/data
+chown postgres /usr/local/pgsql/data
+
+Here I create a new user and home directory for postgres,
+create a database directory and change the owner to the new user.
+
+su - postgres
+/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+/usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data >logfile 2>&1 &
+/usr/local/pgsql/bin/createdb test
+/usr/local/pgsql/bin/psql test
+
+Finally I log into postgres from it's new home directory and initialize
+a the database; postgres as a daemon to log all db actions; create and
+try to access a database.
+
+Done.
+Postgres installed on ArchLinux.
