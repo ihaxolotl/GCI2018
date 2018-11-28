@@ -10,24 +10,24 @@
 #include <QtGui>
 
 namespace Ui {
-  class MainWindow;
+	class MainWindow;
 }
 
+// Main Application Display
 class MainWindow : public QMainWindow
 {
-  Q_OBJECT
-  
- public:
-  explicit MainWindow(QWidget *parent = 0);
-  ~MainWindow();
-
- private slots:
-   void changeColor();
-      
- private:
-   QSlider *m_slider;
-   QPalette m_pal;
-   int m_color;
+Q_OBJECT  
+public:
+	explicit MainWindow(QWidget *parent = 0);
+	~MainWindow();
+	
+private slots:
+	void changeColor();
+	
+private:
+	QSlider *m_slider;
+	QPalette m_pal;
+	int m_color;
 };
 
 #endif
