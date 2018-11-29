@@ -14,9 +14,17 @@ MainWindow::MainWindow(QWidget *parent) :
   m_color = 1;
 
   // Setup the slider.
-  m_slider = new QSlider(Qt::Horizontal);
-  m_slider->setStyleSheet("background: none;");
-  connect(m_slider, SIGNAL(valueChanged(int)), this, SLOT(changeColor()));
+  r_slider = new QSlider(Qt::Horizontal);
+  g_slider = new QSlider(Qt::Horizontal);
+  b_slider = new QSlider(Qt::Horizontal);
+  
+  r_slider->setStyleSheet("background: none;");
+  g_slider->setStyleSheet("background: none;");
+  b_slider->setStyleSheet("background: none;");
+  
+  connect(r_slider, SIGNAL(valueChanged(int)), this, SLOT(changeColor()));
+  connect(g_slider, SIGNAL(valueChanged(int)), this, SLOT(changeColor()));
+  connect(b_slider, SIGNAL(valueChanged(int)), this, SLOT(changeColor()));
 
   // Setup the display.
   this->setCentralWidget(m_slider);
@@ -51,9 +59,9 @@ void MainWindow::changeColor()
     break;
     
   case 4:
-   setStyleSheet("background-color: green;");
-   m_color = 5;
-   break;
+    setStyleSheet("background-color: green;");
+    m_color = 5;
+    break;
 
   case 5:
     setStyleSheet("background-color: blue;");

@@ -19,13 +19,18 @@ class MainWindow : public QMainWindow
   
  public:
   explicit MainWindow(QWidget *parent = 0);
+  void changeRed();
+  void changeBlue();
+  void changeGreen();
   ~MainWindow();
 
  private slots:
    void changeColor();
       
  private:
-   QSlider *m_slider;
+   QSlider *r_slider;
+   QSlider *b_slider;
+   QSlider *g_slider;
    QPalette m_pal;
    int m_color;
 };
