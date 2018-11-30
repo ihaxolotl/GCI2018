@@ -42,10 +42,10 @@ void MainWindow::displayInfo(QListWidgetItem *item)
     dir.setPath(item->text());
     ui->listWidget->clear();
 
-    /* If you're running this on Linux clicking on "/.." in the filesystem root;
-     * the path will redirect back to the filesystem root as "/../.." . I'd like to remove that
+    /* If you're running this on Linux, clicking on "/.." in the filesystem root
+     * will redirect back to the filesystem root as "/../.." . I'd like to remove that
      * but I'll keep it for Windows compatibility for now. It's not a major bug,
-     * it just makes the display a little ugly. So don't click it. */
+     * it just makes the display a little ugly. */
     for (QFileInfo file : dir.entryInfoList(QDir::NoDot | QDir::AllEntries, QDir::Name)) {
         ui->listWidget->addItem(file.absoluteFilePath());
     }
